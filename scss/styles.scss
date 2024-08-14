@@ -1,0 +1,17 @@
+@import "./abstracts/variables";
+
+@import "./layout/calendar";
+@import "./layout/todo-container";
+@import "./layout/toggle-switch";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: $text;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  height: 100vh;
+}
