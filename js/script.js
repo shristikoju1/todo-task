@@ -2,11 +2,8 @@
 $(document).ready(function() {
     $("#toggle-button2").addClass("active");
     $("body").addClass("default-mode");
+    document.body.style.background = "linear-gradient(135deg, #5AA9AD, #bda5ff)";
 
-    document.body.style.background = "linear-gradient(135deg, #6ac1c5, #bda5ff)";
-
-
-    // Handle toggle button clicks
     $(".tri-state-toggle-button").click(function() {
 
         // Remove the active class from all buttons
@@ -23,17 +20,14 @@ $(document).ready(function() {
 
         if (buttonId === "toggle-button1") {
             $("body").addClass("light-mode");
-            console.log("Light mode activated");
             document.body.style.background = "linear-gradient(135deg, #e0d9f5, #ffffff)";
             document.body.style.color = "black";
 
         } else if (buttonId === "toggle-button2") {
-            console.log("Default mode activated");
             document.body.style.background = "linear-gradient(135deg, #6ac1c5, #bda5ff)";
 
 
         } else if (buttonId === "toggle-button3") {
-            console.log("Dark mode activated");
             document.body.style.background = "linear-gradient(135deg, #2c003e, #0d0d0d)";
             document.body.style.color = "white";
             // $('li').css('color', 'white');
