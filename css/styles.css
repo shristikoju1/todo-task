@@ -38,7 +38,7 @@
 #calendar .wrapper header .current-date {
   font-size: 1.35rem;
   font-weight: 700;
-  color: #f39c12;
+  color: black;
 }
 #calendar .wrapper .calendar {
   padding: 15px;
@@ -85,7 +85,7 @@
   border: 1px solid #f2f2f2;
 }
 #calendar .wrapper .calendar li.task-marked {
-  color: rgb(2, 83, 2);
+  color: rgb(3, 158, 3);
   border-radius: 50%;
 }
 #calendar .wrapper .calendar li.task-marked::after {
@@ -128,7 +128,7 @@
   flex: 1;
   padding: 12px;
   background-color: rgba(49, 49, 49, 0.916);
-  border: 2px solid #a64ac9;
+  border: 1px solid #a64ac9;
   border-radius: 12px;
   outline: none;
   color: #fff;
@@ -232,7 +232,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: rgba(91, 91, 91, 0.217);
+  background: rgba(91, 91, 91, 0);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   z-index: 1000;
 }
@@ -240,9 +240,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-.stats-container .details h2 {
-  color: #f1c646;
 }
 .stats-container .details #progressBar {
   width: 200px;
@@ -277,8 +274,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   max-height: 80px;
-  margin: 0px auto;
-  padding: 32px;
+  margin: 10px auto;
+  padding: 10px 32px;
+  border-bottom: 1px solid gray;
 }
 nav .logo {
   display: flex;
@@ -286,7 +284,7 @@ nav .logo {
   align-items: center;
 }
 nav .logo h2 {
-  color: #f1c646;
+  color: #a64ac9;
 }
 nav .tri-state-toggle {
   background: rgba(6, 3, 3, 0.8);

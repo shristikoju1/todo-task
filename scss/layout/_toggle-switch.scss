@@ -3,8 +3,9 @@
   justify-content: space-between;
   align-items: center;
   max-height: 80px;
-  margin: 0px auto;
-  padding: 32px;
+  margin: 10px auto;
+  padding: 10px 32px;
+  border-bottom:1px solid gray ;
 
   .logo{
     display: flex;
@@ -12,10 +13,11 @@
     align-items: center;
 
     h2{
-      color: #f1c646;
+      // color: #f1c646;
+      color: $purple;
+
     }
   }
-
   
   .tri-state-toggle {
     background: rgba(6, 3, 3, 0.8);
