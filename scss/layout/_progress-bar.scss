@@ -1,0 +1,55 @@
+  
+  .stats-container {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    padding: 8px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(196, 217, 225, 0.468);
+    box-shadow: 0 6px 12px $shadow;
+    z-index: 1000;
+  
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      p{
+        color: #184962;
+      }
+  
+      #progressBar {
+        width: 150px; 
+        height: 10px;
+        background-color: rgba(0, 0, 0, 0.174);
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+  
+        #progress {
+          width: 0%;
+          height: 100%;
+          background-color: #184962;
+          border-radius: 8px;
+          transition: width 0.3s ease;
+        }
+      }
+    }
+  
+    .stats-number {
+      width: 50px;
+      height: 50px;
+      background: #184962;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: bold;
+      color: $text;
+    }
+  }
+  

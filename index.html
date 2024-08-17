@@ -1,75 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>दैनिकDiary</title>
-  <link rel="stylesheet" href="./css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>दैनिकLogs.</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
-  <nav>
-    <div class="logo">
-      <h2>दैनिक<span style="color: brown;">Diary.</span></h2>
-    </div>
-    <div class="tri-state-toggle">
-      <button class="tri-state-toggle-button" id="toggle-button1">Light</button>
-      <button class="tri-state-toggle-button" id="toggle-button2">Default</button>
-      <button class="tri-state-toggle-button" id="toggle-button3">Dark</button>
-    </div>
-  </nav>
-
-
-  <div id="calendar" class="calendar">
-    <div class="wrapper">
-      <header>
-        <p class="current-date"></p>
-        <div class="icons">
-          <span id="prev" class="material-symbols-rounded">chevron_left</span>
-          <span id="next" class="material-symbols-rounded">chevron_right</span>
+  <body>
+    <div class="body-wrapper">
+      <nav>
+        <div class="logo">
+          <h2>दैनिक<span style="color: #042332">Logs.</span></h2>
         </div>
-      </header>
-      <div class="calendar">
-        <ul class="weeks">
-          <li>Sun</li>
-          <li>Mon</li>
-          <li>Tue</li>
-          <li>Wed</li>
-          <li>Thu</li>
-          <li>Fri</li>
-          <li>Sat</li>
-        </ul>
-        <ul class="days"></ul>
-      </div>
-    </div>
-  </div>
+        <div class="tri-state-toggle">
+          <button class="tri-state-toggle-button" id="toggle-button1">
+            Light
+          </button>
+          <button class="tri-state-toggle-button" id="toggle-button2">
+            Default
+          </button>
+          <button class="tri-state-toggle-button" id="toggle-button3">
+            Dark
+          </button>
+        </div>
+      </nav>
 
-  <div class="container">
-    <div class="stats-container">
-      <div class="details">
-        <p>Keep it up! 🙋</p>
-        <div id="progressBar" class="progressBar">
-          <div id="progress"></div>
+      <div class="hero">
+        <div id="calendar" class="calendar">
+          <div class="wrapper">
+            <header>
+              <p class="current-date"></p>
+              <div class="icons">
+                <span id="prev" class="material-symbols-rounded"
+                  >chevron_left</span
+                >
+                <span id="next" class="material-symbols-rounded"
+                  >chevron_right</span
+                >
+              </div>
+            </header>
+            <div class="calendar">
+              <ul class="weeks">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+              </ul>
+              <ul class="days"></ul>
+            </div>
+          </div>
+          <div class="calendar-box">
+            <div class="date">
+              <i class="fa-solid fa-calendar-days"></i>
+              <h5 class="today-date"></h5>
+            </div>
+            <h5 class="nepali-date"></h5>
+            <h4 class="tithi"></h4>
+            <span class="current-time"></span>
+            <h3 class="events"></h3>
+
+            <p class="public-holiday">
+              Public Holiday: <span class="holiday"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="container">
+          <form action="" id="taskForm">
+            <input type="text" placeholder="Write your task" id="taskInput" />
+            <button type="submit" id="newTask">+</button>
+          </form>
+
+          <ul id="tasks" class="task-list"></ul>
+        </div>
+
+        <div class="stats-container">
+          <div class="details">
+            <p>Keep it up! 🙋</p>
+            <div id="progressBar" class="progressBar">
+              <div id="progress"></div>
+            </div>
+          </div>
+          <div class="stats-number">
+            <p id="numbers">0 / 0</p>
+          </div>
         </div>
       </div>
-      <div class="stats-number">
-        <p id="numbers">0 / 0</p>
-      </div>
     </div>
 
-    <form action="" id="taskForm">
-      <input type="text" placeholder="Write your task" id="taskInput">
-      <button type="submit" id="newTask">+</button>
-    </form>
-
-    <ul id="tasks" class="task-list"></ul>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="./js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
-
-</body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  </body>
 </html>

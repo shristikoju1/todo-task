@@ -1,39 +1,43 @@
 //Toggle switch
-$(document).ready(function () {
-  $("#toggle-button2").addClass("active");
-  $("body").addClass("default-mode");
-  // document.body.style.background = "linear-gradient(135deg, #5AA9AD, #bda5ff)";
-  document.body.style.background = "#ead2f4ab";
+document.addEventListener('DOMContentLoaded', () => {
+  // Set default state
+  document.getElementById("toggle-button2").classList.add("active");
+  document.body.style.background = "linear-gradient(90deg, #87ceeb, #9dd6ee, #9dd6ee, #87ceeb)";
 
-  $(".tri-state-toggle-button").click(function () {
-    // Remove the active class from all buttons
-    $(".tri-state-toggle-button").removeClass("active");
+  // Add event listeners to all toggle buttons
+  document.querySelectorAll(".tri-state-toggle-button").forEach(button => {
+    button.addEventListener("click", () => {
+      // Remove the active class from all buttons
+      document.querySelectorAll(".tri-state-toggle-button").forEach(btn => btn.classList.remove("active"));
 
-    // Add the active class to the clicked button
-    $(this).addClass("active");
+      // Add the active class to the clicked button
+      button.classList.add("active");
 
-    const buttonId = $(this).attr("id");
+      const buttonId = button.id;
 
-    document.body.style.background = "";
-    document.body.style.color = "";
-    $("li").css("color", "");
+      document.body.style.background = "";
+      document.body.style.color = "";
+      document.querySelectorAll("li").forEach(li => li.style.color = "");
 
-    if (buttonId === "toggle-button1") {
-      $("body").addClass("light-mode");
-      document.body.style.background =
-        "linear-gradient(135deg, #e0d9f5, #ffffff)";
-      document.body.style.color = "black";
-    } else if (buttonId === "toggle-button2") {
-      document.body.style.background =
-        "linear-gradient(135deg, #6ac1c5, #bda5ff)";
-    } else if (buttonId === "toggle-button3") {
-      document.body.style.background =
-        "linear-gradient(135deg, #2c003e, #0d0d0d)";
-      document.body.style.color = "white";
-      // $('li').css('color', 'white');
-    }
+      if (buttonId === "toggle-button1") {
+        document.body.classList.add("light-mode");
+        document.body.style.background = "linear-gradient(135deg, #e0d9f5, #ffffff)";
+        document.body.style.color = "black";
+
+      } else if (buttonId === "toggle-button2") {
+        document.body.style.background = "linear-gradient(90deg, #87ceeb, #9dd6ee, #9dd6ee, #87ceeb)";
+        document.body.classList.add("default-mode");
+
+      } else if (buttonId === "toggle-button3") {
+        document.body.style.background = "#1B1B1B";
+        document.body.style.color = "white";
+        document.body.classList.add("dark-mode");
+        document.querySelector('nav').style.color = 'white';
+      }
+    });
   });
 });
+
 
 // Calendar setup
 const daysTag = document.querySelector(".days"),
@@ -59,9 +63,20 @@ const months = [
   "December",
 ];
 
-let selectedDate = `${currYear}-${currMonth + 1}-${date.getDate()}`;
+const formatDate = (date) => {
+  const [year, month, day] = date.split('-');
+  const formattedMonth = month.padStart(2, '0');
+  const formattedDay = day.padStart(2, '0');
+  return `${year}-${formattedMonth}-${formattedDay}`;
+};
+
+let selectedDate = formatDate(`${currYear}-${currMonth + 1}-${date.getDate()}`);
 
 let tasks = {};
+
+const saveTasks = () => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+};
 
 const renderCalendar = () => {
   let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
@@ -136,6 +151,27 @@ prevNextIcon.forEach((icon) => {
   });
 });
 
+const calendarIcon = document.querySelector('.date i');
+const todayDate = document.querySelector('.today-date');
+
+
+
+const today = new Date();
+
+const options = { 
+  weekday: 'long', 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric' 
+};
+
+const formattedDate = today.toLocaleDateString('en-US', options);
+
+todayDate.innerHTML = formattedDate;
+
+
+
+
 // To-do list setup
 
 // tasks = {};
@@ -163,6 +199,7 @@ const addTask = () => {
     updateTaskList();
     updateProgress();
     renderCalendar();
+    saveTasks();
   }
 };
 
@@ -197,16 +234,21 @@ const updateTaskList = () => {
   }
 };
 
+
 const toggleTaskComplete = (index) => {
   tasks[selectedDate][index].completed = !tasks[selectedDate][index].completed;
   updateTaskList();
   updateProgress();
+  saveTasks();
+
 };
 
 const deleteTask = (index) => {
   tasks[selectedDate].splice(index, 1);
   updateTaskList();
   updateProgress();
+  saveTasks();
+
 };
 
 const updateProgress = () => {
@@ -231,65 +273,133 @@ newTaskBtn.addEventListener("click", function (e) {
 });
 
 const editTask = (index) => {
-  const newTaskText = prompt(
-    "Edit your task:",
-    tasks[selectedDate][index].text
-  );
-
-  if (newTaskText !== null && newTaskText.trim() !== "") {
-    tasks[selectedDate][index].text = newTaskText.trim();
+  taskInput.value = tasks[selectedDate][index].text;
+  tasks[selectedDate].splice(index, 1);
     updateTaskList();
     updateProgress();
-  }
+    saveTasks();
+
 };
 
 // Load tasks for the selected date
 const loadTasksForSelectedDate = () => {
   updateTaskList();
   updateProgress();
+  saveTasks();
+
 };
 
 // Initially load tasks for the default selected date
 loadTasksForSelectedDate();
 
+//Confetti
 const blaskConfetti = () => {
   const count = 200,
-    defaults = {
-      origin: { y: 0.7 },
-    };
+  defaults = {
+    origin: { y: 0.7 },
+  };
 
-  function fire(particleRatio, opts) {
-    confetti(
-      Object.assign({}, defaults, opts, {
-        particleCount: Math.floor(count * particleRatio),
-      })
-    );
+function fire(particleRatio, opts) {
+  confetti(
+    Object.assign({}, defaults, opts, {
+      particleCount: Math.floor(count * particleRatio),
+    })
+  );
+}
+
+fire(0.25, {
+  spread: 26,
+  startVelocity: 55,
+});
+
+fire(0.2, {
+  spread: 60,
+});
+
+fire(0.35, {
+  spread: 100,
+  decay: 0.91,
+  scalar: 0.8,
+});
+
+fire(0.1, {
+  spread: 120,
+  startVelocity: 25,
+  decay: 0.92,
+  scalar: 1.2,
+});
+
+fire(0.1, {
+  spread: 120,
+  startVelocity: 45,
+});
+};
+
+
+// Fetch and display today's info from JSON
+const updateTodayInfo = (selectedDate) => {
+  const nepaliDate = document.querySelector('.nepali-date');
+  const tithiElement = document.querySelector('.tithi');
+  const eventsElement = document.querySelector('.events');
+  const holidayElement = document.querySelector('.holiday');
+
+  fetch('../calendar.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const currentDateData = data.find(item => item.date === selectedDate);
+      console.log(currentDateData);
+      console.log(currentDateData.date);
+      console.log(currentDateData.tithi);
+      console.log("Dates in Data: ", data.map(item => item.date)); // e.g., ["2024-08-01", ...]
+
+      if (currentDateData) {
+        nepaliDate.innerHTML = currentDateData.nepali_date;
+        tithiElement.innerHTML = currentDateData.tithi || "N/A";
+        eventsElement.innerHTML = currentDateData.events || "No events";
+        holidayElement.innerHTML = currentDateData.holiday ? "Yes" : "No";
+      } else {
+        tithiElement.innerHTML = "N/A";
+        eventsElement.innerHTML = "No events";
+        holidayElement.innerHTML = "No";
+      }
+    })
+    .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error);
+    });
+};
+
+updateTodayInfo(formatDate(`${currYear}-${currMonth + 1}-${today.getDate()}`));
+
+//GET CURRENT TIME
+const currentTime = document.querySelector('.current-time');
+
+function updateTime() {
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  // let seconds = now.getSeconds();
+  let ampm = 'AM';
+
+  if (hours >= 12) {
+      ampm = 'PM';
+      if (hours > 12) hours -= 12;
+  } else if (hours === 0) {
+      hours = 12;
   }
 
-  fire(0.25, {
-    spread: 26,
-    startVelocity: 55,
-  });
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  // seconds = seconds < 10 ? '0' + seconds : seconds;
 
-  fire(0.2, {
-    spread: 60,
-  });
+  const timeString = `${hours}:${minutes}${ampm}`;
 
-  fire(0.35, {
-    spread: 100,
-    decay: 0.91,
-    scalar: 0.8,
-  });
+  currentTime.innerHTML = timeString;
+}
 
-  fire(0.1, {
-    spread: 120,
-    startVelocity: 25,
-    decay: 0.92,
-    scalar: 1.2,
-  });
+setInterval(updateTime, 1000);
 
-  fire(0.1, {
-    spread: 120,
-    startVelocity: 45,
-  });
-};
+updateTime();

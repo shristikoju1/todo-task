@@ -3,6 +3,7 @@
 @import "./layout/calendar";
 @import "./layout/todo-container";
 @import "./layout/toggle-switch";
+@import "./layout/progress-bar";
 
 * {
   margin: 0;
@@ -15,3 +16,15 @@ body {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   height: 100vh;
 }
+
+.dark-mode .body-wrapper nav .logo {
+  color: #fff !important;
+}
+
+
+
+
+.hero{
+  display: flex;
+}
+
