@@ -6,6 +6,16 @@
   padding: 32px;
   width: 500px;
   gap: 20px;
+
+  @media (max-width:670px){
+    max-width: 300px;
+
+}
+
+@media (max-width:550px){
+  max-width: 200px;
+
+}
   
     form {
       margin-top: 0px;

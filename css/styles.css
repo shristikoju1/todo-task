@@ -167,6 +167,16 @@
   width: 500px;
   gap: 20px;
 }
+@media (max-width: 670px) {
+  .container {
+    max-width: 300px;
+  }
+}
+@media (max-width: 550px) {
+  .container {
+    max-width: 200px;
+  }
+}
 .container form {
   margin-top: 0px;
   width: 100%;
@@ -400,6 +410,12 @@ body {
 
 .hero {
   display: flex;
+}
+@media (max-width: 670px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
