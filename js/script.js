@@ -1,16 +1,13 @@
 //Toggle switch
 document.addEventListener('DOMContentLoaded', () => {
-  // Set default state
   document.getElementById("toggle-button2").classList.add("active");
+  document.body.classList.add("default-mode");
   document.body.style.background = "linear-gradient(90deg, #87ceeb, #9dd6ee, #9dd6ee, #87ceeb)";
 
-  // Add event listeners to all toggle buttons
   document.querySelectorAll(".tri-state-toggle-button").forEach(button => {
     button.addEventListener("click", () => {
-      // Remove the active class from all buttons
       document.querySelectorAll(".tri-state-toggle-button").forEach(btn => btn.classList.remove("active"));
 
-      // Add the active class to the clicked button
       button.classList.add("active");
 
       const buttonId = button.id;
@@ -21,17 +18,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (buttonId === "toggle-button1") {
         document.body.classList.add("light-mode");
+        document.body.classList.remove("dark-mode");
+        document.body.classList.remove("default-mode");
         document.body.style.background = "linear-gradient(135deg, #e0d9f5, #ffffff)";
         document.body.style.color = "black";
+
 
       } else if (buttonId === "toggle-button2") {
         document.body.style.background = "linear-gradient(90deg, #87ceeb, #9dd6ee, #9dd6ee, #87ceeb)";
         document.body.classList.add("default-mode");
+        document.body.classList.remove("light-mode");
+        document.body.classList.remove("dark-mode");
+
 
       } else if (buttonId === "toggle-button3") {
         document.body.style.background = "#1B1B1B";
         document.body.style.color = "white";
         document.body.classList.add("dark-mode");
+        document.body.classList.remove("light-mode");
+        document.body.classList.remove("default-mode");
         document.querySelector('nav').style.color = 'white';
       }
     });
@@ -72,6 +77,17 @@ const formatDate = (date) => {
 
 let selectedDate = formatDate(`${currYear}-${currMonth + 1}-${date.getDate()}`);
 
+document.addEventListener("DOMContentLoaded", () => {
+  const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+
+  if (storedTasks) {
+    Object.assign(tasks, storedTasks);
+    updateTaskList();
+    updateProgress();
+    renderCalendar();
+  }
+})
+
 let tasks = {};
 
 const saveTasks = () => {
@@ -96,21 +112,17 @@ const renderCalendar = () => {
       i === date.getDate() &&
       currMonth === new Date().getMonth() &&
       currYear === new Date().getFullYear()
-        ? "active"
+        ? "today-date"
         : "";
 
-    // Check if the current date has tasks
     let currentDateStr = `${currYear}-${currMonth + 1}-${i}`;
 
     let hasTasks =
       tasks[currentDateStr] && tasks[selectedDate].length > 0
         ? "task-marked"
         : "";
-    liTag += `<li class="${isToday} ${hasTasks}" data-date="${currentDateStr}">${i}</li>`;
 
-    if (liTag === "") {
-      liTag += `<li class="${isToday} "data-date="${currentDateStr}">${i}</li>`;
-    }
+    liTag += `<li class="${isToday} ${hasTasks}" data-date="${currentDateStr}">${i}</li>`;
   }
 
   //to create days of the next month
@@ -122,17 +134,41 @@ const renderCalendar = () => {
   daysTag.innerHTML = liTag;
 
   // Add click event to all days to select the date
-  const allDays = daysTag.querySelectorAll("li");
-  allDays.forEach((day) => {
-    day.addEventListener("click", () => {
-      if (!day.classList.contains("inactive")) {
-        selectedDate = day.dataset.date;
-        renderCalendar();
-        loadTasksForSelectedDate();
-      }
+  addDateSelectionListeners();
+};
+
+// Function to add event listeners to calendar days
+const addDateSelectionListeners = () => {
+  const items = document.querySelectorAll(".days li");
+
+  items.forEach(function (item) {
+    item.addEventListener("click", function () {
+      items.forEach(function (item) {
+        item.classList.remove("active");
+      });
+      this.classList.add("active");
+      selectedDate = this.dataset.date; // Update the selected date
+      loadTasksForSelectedDate(); // Load tasks for the selected date
     });
   });
 };
+
+renderCalendar(); // Initial rendering of the calendar
+
+prevNextIcon.forEach((icon) => {
+  icon.addEventListener("click", () => {
+    currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+    if (currMonth < 0 || currMonth > 11) {
+      date = new Date(currYear, currMonth, new Date().getDate());
+      currYear = date.getFullYear();
+      currMonth = date.getMonth();
+    } else {
+      date = new Date();
+    }
+    renderCalendar();
+  });
+});
 
 renderCalendar();
 
@@ -199,6 +235,7 @@ const addTask = () => {
     updateTaskList();
     updateProgress();
     renderCalendar();
+    console.log(tasks, "add task func");
     saveTasks();
   }
 };
@@ -216,7 +253,7 @@ const updateTaskList = () => {
                     <input type='checkbox' class='checkbox' ${
                       task.completed ? "checked" : ""
                     }>
-                    <p>${task.text}</p>
+                    <p id = 'list'>${task.text}</p>
                 </div>
                 <div class='icons'>
                     <i class='delete fas fa-trash' onClick='deleteTask(${index})'></i>
@@ -245,11 +282,17 @@ const toggleTaskComplete = (index) => {
 
 const deleteTask = (index) => {
   tasks[selectedDate].splice(index, 1);
+
+  if (tasks[selectedDate].length === 0) {
+    delete tasks[selectedDate];
+  }
+
   updateTaskList();
   updateProgress();
   saveTasks();
-
+  renderCalendar();
 };
+
 
 const updateProgress = () => {
   const totalTasks = tasks[selectedDate] ? tasks[selectedDate].length : 0;
@@ -286,11 +329,13 @@ const loadTasksForSelectedDate = () => {
   updateTaskList();
   updateProgress();
   saveTasks();
+  // renderCalendar();
+
 
 };
 
 // Initially load tasks for the default selected date
-loadTasksForSelectedDate();
+// loadTasksForSelectedDate();
 
 //Confetti
 const blaskConfetti = () => {
@@ -352,10 +397,10 @@ const updateTodayInfo = (selectedDate) => {
     })
     .then(data => {
       const currentDateData = data.find(item => item.date === selectedDate);
-      console.log(currentDateData);
-      console.log(currentDateData.date);
-      console.log(currentDateData.tithi);
-      console.log("Dates in Data: ", data.map(item => item.date)); // e.g., ["2024-08-01", ...]
+      // console.log(currentDateData);
+      // console.log(currentDateData.date);
+      // console.log(currentDateData.tithi);
+      // console.log("Dates in Data: ", data.map(item => item.date)); // e.g., ["2024-08-01", ...]
 
       if (currentDateData) {
         nepaliDate.innerHTML = currentDateData.nepali_date;
@@ -395,7 +440,7 @@ function updateTime() {
   minutes = minutes < 10 ? '0' + minutes : minutes;
   // seconds = seconds < 10 ? '0' + seconds : seconds;
 
-  const timeString = `${hours}:${minutes}${ampm}`;
+  const timeString = `${hours}:${minutes} ${ampm}`;
 
   currentTime.innerHTML = timeString;
 }

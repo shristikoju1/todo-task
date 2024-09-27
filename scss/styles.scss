@@ -2,7 +2,7 @@
 
 @import "./layout/calendar";
 @import "./layout/todo-container";
-@import "./layout/toggle-switch";
+@import "./layout/navbar";
 @import "./layout/progress-bar";
 
 * {
@@ -13,25 +13,30 @@
 
 body {
   color: $text;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   height: 100vh;
 
-}
+  &.dark-mode {
 
-.dark-mode .body-wrapper nav .logo {
-  color: #fff !important;
-}
+    nav .logo h2 {
+      color: #fff;
+    }
 
+    
 
-
-
-.hero{
-  display: flex;
-
-  @media (max-width:670px){
-      display: flex;
-      flex-direction: column;
+    #list{
+      color: #fff;
+    }
+    
 
   }
 }
 
+.hero {
+  display: flex;
+
+  @media (max-width: 670px) {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 #calendar {
   display: flex;
   flex-direction: column;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 24px 32px;
-  
+
   .wrapper {
     width: 250px;
     background: #c2e5f5a4;
     border-radius: 10px;
-    left: 30px; 
+    left: 30px;
 
     header {
       display: flex;
@@ -81,12 +81,8 @@
           color: #aaa;
         }
 
-        &.active {
-          color: #fff;
-
-          &::before {
-            background: rgb(255, 95, 26);
-          }
+        &.active::before {
+          border: 1px solid #0a0a0a;
         }
 
         &::before {
@@ -110,12 +106,20 @@
           border-radius: 50%;
 
           &::after {
-            content: '📅';
+            content: "📅";
             position: absolute;
             top: 30%;
             right: 0%;
             transform: translate(-50%, -50%);
             font-size: 6px;
+          }
+        }
+
+        &.today-date {
+          color: #fff;
+
+          &::before {
+            background: rgb(255, 95, 26);
           }
         }
       }
@@ -137,7 +141,7 @@
       }
     }
   }
-  .calendar-box{
+  .calendar-box {
     max-width: 250px;
     height: auto;
     margin-top: 10px;
@@ -147,50 +151,46 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     color: #0a0a0a;
 
-    .date{
+    .date {
       display: flex;
       gap: 5px;
       margin-bottom: 1px;
-  
-      i{
+
+      i {
         color: #184962;
       }
-  
-      .today-date{
+
+      .today-date {
         color: #184962;
       }
     }
 
-    .tithi{
+    .tithi {
       // margin-bottom: 1px;
       font-size: 16px;
     }
 
-    .current-time{
+    .current-time {
       // margin-bottom: 2px;
       font-size: 12px;
       font-style: normal;
     }
 
-    .events{
+    .events {
       margin-bottom: 2px;
       font-size: 14px;
       font-style: italic;
       color: #333;
     }
 
-    .public-holiday{
+    .public-holiday {
       font-size: 12px;
       font-style: italic;
 
-      .holiday{
+      .holiday {
         font-size: 12px;
         font-weight: bold;
       }
     }
-
-
-
-
   }
 }

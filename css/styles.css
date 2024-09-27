@@ -72,11 +72,8 @@
 #calendar .wrapper .calendar li.inactive {
   color: #aaa;
 }
-#calendar .wrapper .calendar li.active {
-  color: #fff;
-}
 #calendar .wrapper .calendar li.active::before {
-  background: rgb(255, 95, 26);
+  border: 1px solid #0a0a0a;
 }
 #calendar .wrapper .calendar li::before {
   position: absolute;
@@ -103,6 +100,12 @@
   right: 0%;
   transform: translate(-50%, -50%);
   font-size: 6px;
+}
+#calendar .wrapper .calendar li.today-date {
+  color: #fff;
+}
+#calendar .wrapper .calendar li.today-date::before {
+  background: rgb(255, 95, 26);
 }
 #calendar .wrapper .calendar .light-mode li:not(.active):hover::before {
   border: 1px solid black;
@@ -403,9 +406,11 @@ body {
   font-family: "Comic Sans MS", cursive, sans-serif;
   height: 100vh;
 }
-
-.dark-mode .body-wrapper nav .logo {
-  color: #fff !important;
+body.dark-mode nav .logo h2 {
+  color: #fff;
+}
+body.dark-mode #list {
+  color: #fff;
 }
 
 .hero {
