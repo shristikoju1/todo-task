@@ -598,5 +598,615 @@
         "events": "Regular working day",
         "english_month": "September",
         "nepali_month": "कातिक"
-    }
+    },
+    {
+        "date": "2024-10-01",
+        "nepali_date": "२०८१-०७-१५",
+        "day_of_week": "Tuesday",
+        "tithi": "प्रतिपदा",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-02",
+        "nepali_date": "२०८१-०७-१६",
+        "day_of_week": "Wednesday",
+        "tithi": "द्वितीया",
+        "holiday": true,
+        "events": "Gandhi Jayanti",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-03",
+        "nepali_date": "२०८१-०७-१७",
+        "day_of_week": "Thursday",
+        "tithi": "तृतीया",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-04",
+        "nepali_date": "२०८१-०७-१८",
+        "day_of_week": "Friday",
+        "tithi": "चतुर्थी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-05",
+        "nepali_date": "२०८१-०७-१९",
+        "day_of_week": "Saturday",
+        "tithi": "पञ्चमी",
+        "holiday": true,
+        "events": "Regular holiday",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-06",
+        "nepali_date": "२०८१-०७-२०",
+        "day_of_week": "Sunday",
+        "tithi": "षष्ठी",
+        "holiday": true,
+        "events": "Dashain Festival",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-07",
+        "nepali_date": "२०८१-०७-२१",
+        "day_of_week": "Monday",
+        "tithi": "सप्तमी",
+        "holiday": true,
+        "events": "Dashain Festival",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-08",
+        "nepali_date": "२०८१-०७-२२",
+        "day_of_week": "Tuesday",
+        "tithi": "अष्टमी",
+        "holiday": true,
+        "events": "Dashain Festival",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-09",
+        "nepali_date": "२०८१-०७-२३",
+        "day_of_week": "Wednesday",
+        "tithi": "नवमी",
+        "holiday": true,
+        "events": "Dashain Festival",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-10",
+        "nepali_date": "२०८१-०७-२४",
+        "day_of_week": "Thursday",
+        "tithi": "दशमी",
+        "holiday": true,
+        "events": "Dashain Festival",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-11",
+        "nepali_date": "२०८१-०७-२५",
+        "day_of_week": "Friday",
+        "tithi": "एकादशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-12",
+        "nepali_date": "२०८१-०७-२६",
+        "day_of_week": "Saturday",
+        "tithi": "द्वादशी",
+        "holiday": true,
+        "events": "Regular holiday",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-13",
+        "nepali_date": "२०८१-०७-२७",
+        "day_of_week": "Sunday",
+        "tithi": "त्रयोदशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-14",
+        "nepali_date": "२०८१-०७-२८",
+        "day_of_week": "Monday",
+        "tithi": "चतुर्दशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-15",
+        "nepali_date": "२०८१-०७-२९",
+        "day_of_week": "Tuesday",
+        "tithi": "पूर्णिमा",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-16",
+        "nepali_date": "२०८१-०७-३०",
+        "day_of_week": "Wednesday",
+        "tithi": "प्रतिपदा",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "कातिक"
+      },
+      {
+        "date": "2024-10-17",
+        "nepali_date": "२०८१-०८-०१",
+        "day_of_week": "Thursday",
+        "tithi": "द्वितीया",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-18",
+        "nepali_date": "२०८१-०८-०२",
+        "day_of_week": "Friday",
+        "tithi": "तृतीया",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-19",
+        "nepali_date": "२०८१-०८-०३",
+        "day_of_week": "Saturday",
+        "tithi": "चतुर्थी",
+        "holiday": true,
+        "events": "Regular holiday",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-20",
+        "nepali_date": "२०८१-०८-०४",
+        "day_of_week": "Sunday",
+        "tithi": "पञ्चमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-21",
+        "nepali_date": "२०८१-०८-०५",
+        "day_of_week": "Monday",
+        "tithi": "षष्ठी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-22",
+        "nepali_date": "२०८१-०८-०६",
+        "day_of_week": "Tuesday",
+        "tithi": "सप्तमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-23",
+        "nepali_date": "२०८१-०८-०७",
+        "day_of_week": "Wednesday",
+        "tithi": "अष्टमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-24",
+        "nepali_date": "२०८१-०८-०८",
+        "day_of_week": "Thursday",
+        "tithi": "नवमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-25",
+        "nepali_date": "२०८१-०८-०९",
+        "day_of_week": "Friday",
+        "tithi": "दशमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-26",
+        "nepali_date": "२०८१-०८-१०",
+        "day_of_week": "Saturday",
+        "tithi": "एकादशी",
+        "holiday": true,
+        "events": "Regular holiday",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-27",
+        "nepali_date": "२०८१-०८-११",
+        "day_of_week": "Sunday",
+        "tithi": "द्वादशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-28",
+        "nepali_date": "२०८१-०८-१२",
+        "day_of_week": "Monday",
+        "tithi": "त्रयोदशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-29",
+        "nepali_date": "२०८१-०८-१३",
+        "day_of_week": "Tuesday",
+        "tithi": "चतुर्दशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-30",
+        "nepali_date": "२०८१-०८-१४",
+        "day_of_week": "Wednesday",
+        "tithi": "पूर्णिमा",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-10-31",
+        "nepali_date": "२०८१-०८-१५",
+        "day_of_week": "Thursday",
+        "tithi": "प्रतिपदा",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "October",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-01",
+        "nepali_date": "२०८१-०८-१६",
+        "day_of_week": "Friday",
+        "tithi": "द्वितीया",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-02",
+        "nepali_date": "२०८१-०८-१७",
+        "day_of_week": "Saturday",
+        "tithi": "तृतीया",
+        "holiday": true,
+        "events": "Regular holiday",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-03",
+        "nepali_date": "२०८१-०८-१८",
+        "day_of_week": "Sunday",
+        "tithi": "चतुर्थी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-04",
+        "nepali_date": "२०८१-०८-१९",
+        "day_of_week": "Monday",
+        "tithi": "पञ्चमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-05",
+        "nepali_date": "२०८१-०८-२०",
+        "day_of_week": "Tuesday",
+        "tithi": "षष्ठी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-06",
+        "nepali_date": "२०८१-०८-२१",
+        "day_of_week": "Wednesday",
+        "tithi": "सप्तमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-07",
+        "nepali_date": "२०८१-०८-२२",
+        "day_of_week": "Thursday",
+        "tithi": "अष्टमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-08",
+        "nepali_date": "२०८१-०८-२३",
+        "day_of_week": "Friday",
+        "tithi": "नवमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-09",
+        "nepali_date": "२०८१-०८-२४",
+        "day_of_week": "Saturday",
+        "tithi": "दशमी",
+        "holiday": true,
+        "events": "Regular holiday",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-10",
+        "nepali_date": "२०८१-०८-२५",
+        "day_of_week": "Sunday",
+        "tithi": "एकादशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-11",
+        "nepali_date": "२०८१-०८-२६",
+        "day_of_week": "Monday",
+        "tithi": "द्वादशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-12",
+        "nepali_date": "२०८१-०८-२७",
+        "day_of_week": "Tuesday",
+        "tithi": "त्रयोदशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-13",
+        "nepali_date": "२०८१-०८-२८",
+        "day_of_week": "Wednesday",
+        "tithi": "चतुर्दशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-14",
+        "nepali_date": "२०८१-०८-२९",
+        "day_of_week": "Thursday",
+        "tithi": "पूर्णिमा",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-15",
+        "nepali_date": "२०८१-०८-३०",
+        "day_of_week": "Friday",
+        "tithi": "प्रतिपदा",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-16",
+        "nepali_date": "२०८१-०९-०१",
+        "day_of_week": "Saturday",
+        "tithi": "द्वितीया",
+        "holiday": true,
+        "events": "Regular holiday",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-17",
+        "nepali_date": "२०८१-०९-०२",
+        "day_of_week": "Sunday",
+        "tithi": "तृतीया",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-18",
+        "nepali_date": "२०८१-०९-०३",
+        "day_of_week": "Monday",
+        "tithi": "चतुर्थी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-19",
+        "nepali_date": "२०८१-०९-०४",
+        "day_of_week": "Tuesday",
+        "tithi": "पञ्चमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-20",
+        "nepali_date": "२०८१-०९-०५",
+        "day_of_week": "Wednesday",
+        "tithi": "षष्ठी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-21",
+        "nepali_date": "२०८१-०९-०६",
+        "day_of_week": "Thursday",
+        "tithi": "सप्तमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-22",
+        "nepali_date": "२०८१-०९-०७",
+        "day_of_week": "Friday",
+        "tithi": "अष्टमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-23",
+        "nepali_date": "२०८१-०९-०८",
+        "day_of_week": "Saturday",
+        "tithi": "नवमी",
+        "holiday": true,
+        "events": "Regular holiday",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-24",
+        "nepali_date": "२०८१-०९-०९",
+        "day_of_week": "Sunday",
+        "tithi": "दशमी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-25",
+        "nepali_date": "२०८१-०९-१०",
+        "day_of_week": "Monday",
+        "tithi": "एकादशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-26",
+        "nepali_date": "२०८१-०९-११",
+        "day_of_week": "Tuesday",
+        "tithi": "द्वादशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-27",
+        "nepali_date": "२०८१-०९-१२",
+        "day_of_week": "Wednesday",
+        "tithi": "त्रयोदशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-28",
+        "nepali_date": "२०८१-०९-१३",
+        "day_of_week": "Thursday",
+        "tithi": "चतुर्दशी",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-29",
+        "nepali_date": "२०८१-०९-१४",
+        "day_of_week": "Friday",
+        "tithi": "पूर्णिमा",
+        "holiday": false,
+        "events": "Regular working day",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      },
+      {
+        "date": "2024-11-30",
+        "nepali_date": "२०८१-०९-१५",
+        "day_of_week": "Saturday",
+        "tithi": "प्रतिपदा",
+        "holiday": true,
+        "events": "Regular holiday",
+        "english_month": "November",
+        "nepali_month": "मंसिर"
+      }
 ]

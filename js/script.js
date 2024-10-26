@@ -1,12 +1,15 @@
 //Toggle switch
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("toggle-button2").classList.add("active");
   document.body.classList.add("default-mode");
-  document.body.style.background = "linear-gradient(90deg, #87ceeb, #9dd6ee, #9dd6ee, #87ceeb)";
+  document.body.style.background =
+    "linear-gradient(90deg, #87ceeb, #9dd6ee, #9dd6ee, #87ceeb)";
 
-  document.querySelectorAll(".tri-state-toggle-button").forEach(button => {
+  document.querySelectorAll(".tri-state-toggle-button").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelectorAll(".tri-state-toggle-button").forEach(btn => btn.classList.remove("active"));
+      document
+        .querySelectorAll(".tri-state-toggle-button")
+        .forEach((btn) => btn.classList.remove("active"));
 
       button.classList.add("active");
 
@@ -14,35 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
       document.body.style.background = "";
       document.body.style.color = "";
-      document.querySelectorAll("li").forEach(li => li.style.color = "");
+      document.querySelectorAll("li").forEach((li) => (li.style.color = ""));
 
       if (buttonId === "toggle-button1") {
         document.body.classList.add("light-mode");
         document.body.classList.remove("dark-mode");
         document.body.classList.remove("default-mode");
-        document.body.style.background = "linear-gradient(135deg, #e0d9f5, #ffffff)";
+        document.body.style.background =
+          "linear-gradient(135deg, #e0d9f5, #ffffff)";
         document.body.style.color = "black";
-
-
       } else if (buttonId === "toggle-button2") {
-        document.body.style.background = "linear-gradient(90deg, #87ceeb, #9dd6ee, #9dd6ee, #87ceeb)";
+        document.body.style.background =
+          "linear-gradient(90deg, #87ceeb, #9dd6ee, #9dd6ee, #87ceeb)";
         document.body.classList.add("default-mode");
         document.body.classList.remove("light-mode");
         document.body.classList.remove("dark-mode");
-
-
       } else if (buttonId === "toggle-button3") {
         document.body.style.background = "#1B1B1B";
         document.body.style.color = "white";
         document.body.classList.add("dark-mode");
         document.body.classList.remove("light-mode");
         document.body.classList.remove("default-mode");
-        document.querySelector('nav').style.color = 'white';
+        document.querySelector("nav").style.color = "white";
       }
     });
   });
 });
-
 
 // Calendar setup
 const daysTag = document.querySelector(".days"),
@@ -69,9 +69,9 @@ const months = [
 ];
 
 const formatDate = (date) => {
-  const [year, month, day] = date.split('-');
-  const formattedMonth = month.padStart(2, '0');
-  const formattedDay = day.padStart(2, '0');
+  const [year, month, day] = date.split("-");
+  const formattedMonth = month.padStart(2, "0");
+  const formattedDay = day.padStart(2, "0");
   return `${year}-${formattedMonth}-${formattedDay}`;
 };
 
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateProgress();
     renderCalendar();
   }
-})
+});
 
 let tasks = {};
 
@@ -187,26 +187,21 @@ prevNextIcon.forEach((icon) => {
   });
 });
 
-const calendarIcon = document.querySelector('.date i');
-const todayDate = document.querySelector('.today-date');
-
-
+const calendarIcon = document.querySelector(".date i");
+const todayDate = document.querySelector(".todays-date");
 
 const today = new Date();
 
-const options = { 
-  weekday: 'long', 
-  year: 'numeric', 
-  month: 'long', 
-  day: 'numeric' 
+const options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 };
 
-const formattedDate = today.toLocaleDateString('en-US', options);
+const formattedDate = today.toLocaleDateString("en-US", options);
 
 todayDate.innerHTML = formattedDate;
-
-
-
 
 // To-do list setup
 
@@ -271,13 +266,11 @@ const updateTaskList = () => {
   }
 };
 
-
 const toggleTaskComplete = (index) => {
   tasks[selectedDate][index].completed = !tasks[selectedDate][index].completed;
   updateTaskList();
   updateProgress();
   saveTasks();
-
 };
 
 const deleteTask = (index) => {
@@ -292,7 +285,6 @@ const deleteTask = (index) => {
   saveTasks();
   renderCalendar();
 };
-
 
 const updateProgress = () => {
   const totalTasks = tasks[selectedDate] ? tasks[selectedDate].length : 0;
@@ -318,10 +310,9 @@ newTaskBtn.addEventListener("click", function (e) {
 const editTask = (index) => {
   taskInput.value = tasks[selectedDate][index].text;
   tasks[selectedDate].splice(index, 1);
-    updateTaskList();
-    updateProgress();
-    saveTasks();
-
+  updateTaskList();
+  updateProgress();
+  saveTasks();
 };
 
 // Load tasks for the selected date
@@ -330,8 +321,6 @@ const loadTasksForSelectedDate = () => {
   updateProgress();
   saveTasks();
   // renderCalendar();
-
-
 };
 
 // Initially load tasks for the default selected date
@@ -340,63 +329,62 @@ const loadTasksForSelectedDate = () => {
 //Confetti
 const blaskConfetti = () => {
   const count = 200,
-  defaults = {
-    origin: { y: 0.7 },
-  };
+    defaults = {
+      origin: { y: 0.7 },
+    };
 
-function fire(particleRatio, opts) {
-  confetti(
-    Object.assign({}, defaults, opts, {
-      particleCount: Math.floor(count * particleRatio),
-    })
-  );
-}
+  function fire(particleRatio, opts) {
+    confetti(
+      Object.assign({}, defaults, opts, {
+        particleCount: Math.floor(count * particleRatio),
+      })
+    );
+  }
 
-fire(0.25, {
-  spread: 26,
-  startVelocity: 55,
-});
+  fire(0.25, {
+    spread: 26,
+    startVelocity: 55,
+  });
 
-fire(0.2, {
-  spread: 60,
-});
+  fire(0.2, {
+    spread: 60,
+  });
 
-fire(0.35, {
-  spread: 100,
-  decay: 0.91,
-  scalar: 0.8,
-});
+  fire(0.35, {
+    spread: 100,
+    decay: 0.91,
+    scalar: 0.8,
+  });
 
-fire(0.1, {
-  spread: 120,
-  startVelocity: 25,
-  decay: 0.92,
-  scalar: 1.2,
-});
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 25,
+    decay: 0.92,
+    scalar: 1.2,
+  });
 
-fire(0.1, {
-  spread: 120,
-  startVelocity: 45,
-});
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 45,
+  });
 };
-
 
 // Fetch and display today's info from JSON
 const updateTodayInfo = (selectedDate) => {
-  const nepaliDate = document.querySelector('.nepali-date');
-  const tithiElement = document.querySelector('.tithi');
-  const eventsElement = document.querySelector('.events');
-  const holidayElement = document.querySelector('.holiday');
+  const nepaliDate = document.querySelector(".nepali-date");
+  const tithiElement = document.querySelector(".tithi");
+  const eventsElement = document.querySelector(".events");
+  const holidayElement = document.querySelector(".holiday");
 
-  fetch('../calendar.json')
-    .then(response => {
+  fetch("../calendar.json")
+    .then((response) => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
       return response.json();
     })
-    .then(data => {
-      const currentDateData = data.find(item => item.date === selectedDate);
+    .then((data) => {
+      const currentDateData = data.find((item) => item.date === selectedDate);
       // console.log(currentDateData);
       // console.log(currentDateData.date);
       // console.log(currentDateData.tithi);
@@ -413,31 +401,34 @@ const updateTodayInfo = (selectedDate) => {
         holidayElement.innerHTML = "No";
       }
     })
-    .catch(error => {
-      console.error('There has been a problem with your fetch operation:', error);
+    .catch((error) => {
+      console.error(
+        "There has been a problem with your fetch operation:",
+        error
+      );
     });
 };
 
 updateTodayInfo(formatDate(`${currYear}-${currMonth + 1}-${today.getDate()}`));
 
 //GET CURRENT TIME
-const currentTime = document.querySelector('.current-time');
+const currentTime = document.querySelector(".current-time");
 
 function updateTime() {
   const now = new Date();
   let hours = now.getHours();
   let minutes = now.getMinutes();
   // let seconds = now.getSeconds();
-  let ampm = 'AM';
+  let ampm = "AM";
 
   if (hours >= 12) {
-      ampm = 'PM';
-      if (hours > 12) hours -= 12;
+    ampm = "PM";
+    if (hours > 12) hours -= 12;
   } else if (hours === 0) {
-      hours = 12;
+    hours = 12;
   }
 
-  minutes = minutes < 10 ? '0' + minutes : minutes;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
   // seconds = seconds < 10 ? '0' + seconds : seconds;
 
   const timeString = `${hours}:${minutes} ${ampm}`;
