@@ -75,7 +75,8 @@ const formatDate = (date) => {
   return `${year}-${formattedMonth}-${formattedDay}`;
 };
 
-let selectedDate = formatDate(`${currYear}-${currMonth + 1}-${date.getDate()}`);
+let todaysDate = formatDate(`${currYear}-${currMonth + 1}-${date.getDate()}`);
+// console.log("selected date", todaysDate)
 
 document.addEventListener("DOMContentLoaded", () => {
   const storedTasks = JSON.parse(localStorage.getItem("tasks"));
@@ -117,11 +118,8 @@ const renderCalendar = () => {
 
     let currentDateStr = `${currYear}-${currMonth + 1}-${i}`;
 
-    console.log("Current date", currentDateStr);
-    console.log("Current date tasks", tasks[currentDateStr]);
-
     let hasTasks =
-      tasks[currentDateStr] && tasks[selectedDate].length > 0
+      tasks[currentDateStr]
         ? "task-marked"
         : "";
 
@@ -150,13 +148,11 @@ const addDateSelectionListeners = () => {
         item.classList.remove("active");
       });
       this.classList.add("active");
-      selectedDate = this.dataset.date; // Update the selected date
-      loadTasksForSelectedDate(); // Load tasks for the selected date
+      todaysDate = this.dataset.date; // Update the selected date
+      loadTasksForTodaysDatetodaysDate(); // Load tasks for the selected date
     });
   });
 };
-
-renderCalendar(); // Initial rendering of the calendar
 
 prevNextIcon.forEach((icon) => {
   icon.addEventListener("click", () => {
@@ -173,7 +169,6 @@ prevNextIcon.forEach((icon) => {
   });
 });
 
-renderCalendar();
 
 const calendarIcon = document.querySelector(".date i");
 const todayDate = document.querySelector(".todays-date");
@@ -205,14 +200,14 @@ const addTask = () => {
   const text = taskInput.value.trim();
 
   if (text) {
-    if (!tasks[selectedDate]) {
-      tasks[selectedDate] = [];
+    if (!tasks[todaysDate]) {
+      tasks[todaysDate] = [];
     }
 
-    tasks[selectedDate].push({
+    tasks[todaysDate].push({
       text: text,
       completed: false,
-      date: selectedDate,
+      date: todaysDate,
     });
     taskInput.value = "";
     updateTaskList();
@@ -225,8 +220,8 @@ const addTask = () => {
 const updateTaskList = () => {
   taskList.innerHTML = "";
 
-  if (tasks[selectedDate]) {
-    tasks[selectedDate].forEach((task, index) => {
+  if (tasks[todaysDate]) {
+    tasks[todaysDate].forEach((task, index) => {
       const listItem = document.createElement("li");
 
       listItem.innerHTML = `
@@ -254,22 +249,22 @@ const updateTaskList = () => {
 };
 
 const toggleTaskComplete = (index) => {
-  tasks[selectedDate][index].completed = !tasks[selectedDate][index].completed;
+  tasks[todaysDate][index].completed = !tasks[todaysDate][index].completed;
   updateTaskList();
   updateProgress();
   saveTasks();
 };
 
 const deleteTask = (index) => {
-  tasks[selectedDate].splice(index, 1);
+  tasks[todaysDate].splice(index, 1);
 
   // If there are no tasks left for the selected date, delete the date key
-  if (tasks[selectedDate].length === 0) {
-    delete tasks[selectedDate];
+  if (tasks[todaysDate].length === 0) {
+    delete tasks[todaysDate];
 
     // Find the date element and remove the "task-marked" class
-    const dateElement = document.querySelector(`[data-date="${selectedDate}"]`);
-    console.log("Date element", dateElement);
+    const dateElement = document.querySelector(`[data-date="${todaysDate}"]`);
+    console.log('Date element',dateElement);
     if (dateElement) {
       dateElement.classList.remove("task-marked");
     }
@@ -283,9 +278,9 @@ const deleteTask = (index) => {
 };
 
 const updateProgress = () => {
-  const totalTasks = tasks[selectedDate] ? tasks[selectedDate].length : 0;
-  const completedTasks = tasks[selectedDate]
-    ? tasks[selectedDate].filter((task) => task.completed).length
+  const totalTasks = tasks[todaysDate] ? tasks[todaysDate].length : 0;
+  const completedTasks = tasks[todaysDate]
+    ? tasks[todaysDate].filter((task) => task.completed).length
     : 0;
   const progressPercentage =
     totalTasks === 0 ? 0 : (completedTasks / totalTasks) * 100;
@@ -304,15 +299,15 @@ newTaskBtn.addEventListener("click", function (e) {
 });
 
 const editTask = (index) => {
-  taskInput.value = tasks[selectedDate][index].text;
-  tasks[selectedDate].splice(index, 1);
+  taskInput.value = tasks[todaysDate][index].text;
+  tasks[todaysDate].splice(index, 1);
   updateTaskList();
   updateProgress();
   saveTasks();
 };
 
 // Load tasks for the selected date
-const loadTasksForSelectedDate = () => {
+const loadTasksForTodaysDatetodaysDate = () => {
   updateTaskList();
   updateProgress();
   saveTasks();
@@ -320,7 +315,7 @@ const loadTasksForSelectedDate = () => {
 };
 
 // Initially load tasks for the default selected date
-// loadTasksForSelectedDate();
+// loadTasksForTodaysDatetodaysDate();
 
 //Confetti
 const blaskConfetti = () => {
@@ -366,7 +361,7 @@ const blaskConfetti = () => {
 };
 
 // Fetch and display today's info from JSON
-const updateTodayInfo = (selectedDate) => {
+const updateTodayInfo = (todaysDate) => {
   const nepaliDate = document.querySelector(".nepali-date");
   const tithiElement = document.querySelector(".tithi");
   const eventsElement = document.querySelector(".events");
@@ -380,7 +375,7 @@ const updateTodayInfo = (selectedDate) => {
       return response.json();
     })
     .then((data) => {
-      const currentDateData = data.find((item) => item.date === selectedDate);
+      const currentDateData = data.find((item) => item.date === todaysDate);
       // console.log(currentDateData);
       // console.log(currentDateData.date);
       // console.log(currentDateData.tithi);
@@ -435,3 +430,6 @@ function updateTime() {
 setInterval(updateTime, 1000);
 
 updateTime();
+renderCalendar();
+
+
