@@ -91,7 +91,6 @@
 }
 #calendar .wrapper .calendar li.task-marked {
   color: rgb(255, 38, 0);
-  border-radius: 50%;
 }
 #calendar .wrapper .calendar li.task-marked::after {
   content: "📅";

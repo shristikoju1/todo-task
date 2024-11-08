@@ -117,6 +117,9 @@ const renderCalendar = () => {
 
     let currentDateStr = `${currYear}-${currMonth + 1}-${i}`;
 
+    console.log("Current date", currentDateStr);
+    console.log("Current date tasks", tasks[currentDateStr]);
+
     let hasTasks =
       tasks[currentDateStr] && tasks[selectedDate].length > 0
         ? "task-marked"
@@ -172,21 +175,6 @@ prevNextIcon.forEach((icon) => {
 
 renderCalendar();
 
-prevNextIcon.forEach((icon) => {
-  icon.addEventListener("click", () => {
-    currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
-
-    if (currMonth < 0 || currMonth > 11) {
-      date = new Date(currYear, currMonth, new Date().getDate());
-      currYear = date.getFullYear();
-      currMonth = date.getMonth();
-    } else {
-      date = new Date();
-    }
-    renderCalendar();
-  });
-});
-
 const calendarIcon = document.querySelector(".date i");
 const todayDate = document.querySelector(".todays-date");
 
@@ -230,7 +218,6 @@ const addTask = () => {
     updateTaskList();
     updateProgress();
     renderCalendar();
-    console.log(tasks, "add task func");
     saveTasks();
   }
 };
@@ -276,10 +263,19 @@ const toggleTaskComplete = (index) => {
 const deleteTask = (index) => {
   tasks[selectedDate].splice(index, 1);
 
+  // If there are no tasks left for the selected date, delete the date key
   if (tasks[selectedDate].length === 0) {
     delete tasks[selectedDate];
+
+    // Find the date element and remove the "task-marked" class
+    const dateElement = document.querySelector(`[data-date="${selectedDate}"]`);
+    console.log("Date element", dateElement);
+    if (dateElement) {
+      dateElement.classList.remove("task-marked");
+    }
   }
 
+  // Update the UI and save changes
   updateTaskList();
   updateProgress();
   saveTasks();
